@@ -1,0 +1,978 @@
+{'attack': [('T1112', 'modify_proxy'),
+            ('T1486', 'ransomware_file_modifications'),
+            ('T1539', 'infostealer_cookies')],
+ 'behaviour_signature': [('antidebug_setunhandledexceptionfilter',
+                          'SetUnhandledExceptionFilter detected (possible '
+                          'anti-debug) (Severity: 1 Confidence: 40)'),
+                         ('antisandbox_sleep',
+                          'A process attempted to delay the analysis task. '
+                          '(Severity: 2 Confidence: 100)'),
+                         ('dynamic_function_loading',
+                          'Dynamic (imported) function loading detected '
+                          '(Severity: 2 Confidence: 40)'),
+                         ('encrypted_ioc',
+                          'At least one IP Address, Domain, or File Name was '
+                          'found in a crypto call (Severity: 2 Confidence: '
+                          '100)'),
+                         ('infostealer_cookies',
+                          'Harvests cookies for information gathering '
+                          '(Severity: 3 Confidence: 100)'),
+                         ('injection_rwx',
+                          'Creates RWX memory (Severity: 2 Confidence: 50)'),
+                         ('modify_proxy',
+                          'Attempts to modify proxy settings (Severity: 3 '
+                          'Confidence: 100)'),
+                         ('ransomware_file_modifications',
+                          'Exhibits possible ransomware or wiper file '
+                          'modification behavior: overwrites_existing_files '
+                          '(Severity: 3 Confidence: 50)'),
+                         ('reads_self',
+                          'Reads data out of its own binary image (Severity: 2 '
+                          'Confidence: 30)')],
+ 'cape_malscore': [(7.4, None)],
+ 'command_executed': [('"C:\\Users\\user\\AppData\\Local\\Temp\\is-DCUMI.tmp\\CheatEngine651.tmp" '
+                       '/SL5="$80116,10670942,56832,C:\\Users\\user\\AppData\\Local\\Temp\\CheatEngine651.exe"',
+                       None),
+                      ('RunDll32.exe '
+                       '"C:\\Users\\user\\AppData\\Local\\Temp\\is-RT42A.tmp\\OCSetupHlp.dll",_OCPID0736OpenCandy2@16 '
+                       '1124,9B130D24AD034E2788A84D2DA4FD9545,5BD1ACAFCCD24F43A017D4FFDA34755F,773E4087FC3D441B9BB2AD89FB712F24',
+                       None)],
+ 'file_read': [('C:\\Users\\user\\AppData\\Local\\Microsoft\\Windows\\History\\History.IE5\\index.dat',
+                None),
+               ('C:\\Users\\user\\AppData\\Local\\Microsoft\\Windows\\Temporary '
+                'Internet Files\\Content.IE5\\index.dat',
+                None),
+               ('C:\\Users\\user\\AppData\\Local\\Temp\\CheatEngine651.exe',
+                None),
+               ('C:\\Users\\user\\AppData\\Local\\Temp\\is-DCUMI.tmp\\CheatEngine651.tmp',
+                None),
+               ('C:\\Users\\user\\AppData\\Local\\Temp\\is-RT42A.tmp\\OCSetupHlp.dll',
+                None),
+               ('C:\\Users\\user\\AppData\\Local\\Temp\\is-RT42A.tmp\\_isetup\\_shfoldr.dll',
+                None),
+               ('C:\\Users\\user\\AppData\\Roaming\\Microsoft\\Windows\\Cookies\\index.dat',
+                None),
+               ('C:\\Windows\\Fonts\\staticcache.dat', None),
+               ('C:\\Windows\\Globalization\\Sorting\\sortdefault.nls', None),
+               ('C:\\Windows\\System32\\IPHLPAPI.DLL', None),
+               ('C:\\Windows\\System32\\dnsapi.dll', None),
+               ('C:\\Windows\\System32\\en-US\\KERNELBASE.dll.mui', None),
+               ('C:\\Windows\\System32\\en-US\\VssTrace.DLL.mui', None),
+               ('C:\\Windows\\System32\\en-US\\imageres.dll.mui', None),
+               ('C:\\Windows\\System32\\en-US\\netmsg.dll.mui', None),
+               ('C:\\Windows\\System32\\en-US\\shell32.dll.mui', None),
+               ('C:\\Windows\\System32\\en-US\\tzres.dll.mui', None),
+               ('C:\\Windows\\System32\\en-US\\wininet.dll.mui', None),
+               ('C:\\Windows\\System32\\en\\KERNELBASE.dll.mui', None),
+               ('C:\\Windows\\System32\\en\\shell32.dll.mui', None),
+               ('C:\\Windows\\System32\\imageres.dll', None),
+               ('C:\\Windows\\System32\\netmsg.dll', None),
+               ('C:\\Windows\\System32\\tzres.dll', None),
+               ('C:\\Windows\\System32\\uxtheme.dll', None),
+               ('C:\\Windows\\System32\\uxtheme.dll.Config', None),
+               ('C:\\Windows\\System32\\version.dll', None),
+               ('C:\\Windows\\System32\\wbem\\repository', None),
+               ('C:\\Windows\\System32\\wbem\\repository\\INDEX.BTR', None),
+               ('C:\\Windows\\System32\\wbem\\repository\\MAPPING1.MAP', None),
+               ('C:\\Windows\\System32\\wbem\\repository\\MAPPING2.MAP', None),
+               ('C:\\Windows\\System32\\wbem\\repository\\MAPPING3.MAP', None),
+               ('C:\\Windows\\System32\\wbem\\repository\\OBJECTS.DATA', None),
+               ('C:\\Windows\\System32\\wininet.dll', None),
+               ('C:\\Windows\\System32\\winnsi.dll', None),
+               ('C:\\Windows\\WindowsShell.Manifest', None),
+               ('C:\\Windows\\win.ini', None),
+               ('C:\\Windows\\winsxs\\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\\comctl32.dll',
+                None),
+               ('C:\\Windows\\winsxs\\x86_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.7601.24234_none_5c05ea59a00ef565\\GdiPlus.dll',
+                None),
+               ('\\??\\PIPE\\samr', None),
+               ('\\??\\pipe\\PIPE_EVENTROOT\\CIMV2PROVIDERSUBSYSTEM', None),
+               ('\\??\\pipe\\PIPE_EVENTROOT\\CIMV2WMI SELF-INSTRUMENTATION '
+                'EVENT PROVIDER',
+                None),
+               ('\\Device\\KsecDD', None)],
+ 'file_written': [('C:\\Users\\user\\AppData\\Local\\Microsoft\\Windows\\History\\History.IE5\\index.dat',
+                   None),
+                  ('C:\\Users\\user\\AppData\\Local\\Microsoft\\Windows\\Temporary '
+                   'Internet Files\\Content.IE5\\index.dat',
+                   None),
+                  ('C:\\Users\\user\\AppData\\Local\\Temp\\is-DCUMI.tmp\\CheatEngine651.tmp',
+                   None),
+                  ('C:\\Users\\user\\AppData\\Local\\Temp\\is-RT42A.tmp\\OCSetupHlp.dll',
+                   None),
+                  ('C:\\Users\\user\\AppData\\Local\\Temp\\is-RT42A.tmp\\_isetup\\_shfoldr.dll',
+                   None),
+                  ('C:\\Users\\user\\AppData\\Roaming\\Microsoft\\Windows\\Cookies\\index.dat',
+                   None),
+                  ('C:\\Windows\\System32\\wbem\\repository\\INDEX.BTR', None),
+                  ('C:\\Windows\\System32\\wbem\\repository\\MAPPING1.MAP',
+                   None),
+                  ('C:\\Windows\\System32\\wbem\\repository\\MAPPING2.MAP',
+                   None),
+                  ('C:\\Windows\\System32\\wbem\\repository\\MAPPING3.MAP',
+                   None),
+                  ('C:\\Windows\\System32\\wbem\\repository\\OBJECTS.DATA',
+                   None),
+                  ('C:\\Windows\\System32\\wbem\\repository\\WRITABLE.TST',
+                   None),
+                  ('\\??\\PIPE\\samr', None),
+                  ('\\??\\pipe\\PIPE_EVENTROOT\\CIMV2PROVIDERSUBSYSTEM', None),
+                  ('\\??\\pipe\\PIPE_EVENTROOT\\CIMV2WMI SELF-INSTRUMENTATION '
+                   'EVENT PROVIDER',
+                   None)],
+ 'registry_key_deleted': [('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                           'Settings\\AutoConfigURL',
+                           None),
+                          ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                           'Settings\\ProxyOverride',
+                           None),
+                          ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                           'Settings\\ProxyServer',
+                           None)],
+ 'registry_key_set': [('HKEY_CURRENT_USER\\Software\\Microsoft\\RestartManager\\Session0000',
+                       None),
+                      ('HKEY_CURRENT_USER\\Software\\Microsoft\\RestartManager\\Session0000\\Owner',
+                       None),
+                      ('HKEY_CURRENT_USER\\Software\\Microsoft\\RestartManager\\Session0000\\Sequence',
+                       None),
+                      ('HKEY_CURRENT_USER\\Software\\Microsoft\\RestartManager\\Session0000\\SessionHash',
+                       None),
+                      ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                       'Settings\\Connections\\SavedLegacySettings',
+                       None),
+                      ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                       'Settings\\ProxyEnable',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\(Default)',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\0',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\0\\win32',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\0\\win32\\(Default)',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\FLAGS',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\FLAGS\\(Default)',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\HELPDIR',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\HELPDIR\\(Default)',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\ConsoleTracingMask',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\EnableConsoleTracing',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\EnableFileTracing',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\FileDirectory',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\FileTracingMask',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\MaxFileSize',
+                       None),
+                      ('HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Tracing\\RunDll32_RASAPI32',
+                       None)],
+ 'registry_read': [('DisableUserModeCallbackFilter', None),
+                   ('HKEY_CURRENT_USER\\Control Panel\\Desktop\\SmoothScroll',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\Windows\\DragDelay',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\Windows\\DragMinDist',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\Windows\\ScrollDelay',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\Windows\\ScrollInset',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\Windows\\ScrollInterval',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\AccListViewV6',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\EnableBalloonTips',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ListviewAlphaSelect',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ListviewShadow',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\UseDoubleClickTimer',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User '
+                    'Shell Folders\\AppData',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Content\\CacheLimit',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Content\\CachePrefix',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Content\\PerUserItem',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Cookies\\CacheLimit',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Cookies\\CachePrefix',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Cookies\\PerUserItem',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\MSHist012023021520230216\\CacheLimit',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\MSHist012023021520230216\\CacheOptions',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\MSHist012023021520230216\\CachePath',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\MSHist012023021520230216\\CachePrefix',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\MSHist012023021520230216\\CacheRepair',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\MSHist012023021620230217\\CacheLimit',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\MSHist012023021620230217\\CacheOptions',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\MSHist012023021620230217\\CachePath',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\MSHist012023021620230217\\CachePrefix',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\MSHist012023021620230217\\CacheRepair',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\feedplat\\CacheLimit',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\feedplat\\CacheOptions',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\feedplat\\CachePath',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\feedplat\\CachePrefix',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\feedplat\\CacheRepair',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible Cache\\ietld\\CacheLimit',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\ietld\\CacheOptions',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible Cache\\ietld\\CachePath',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\ietld\\CachePrefix',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Extensible '
+                    'Cache\\ietld\\CacheRepair',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\History\\CacheLimit',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\History\\CachePrefix',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\History\\PerUserItem',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\ScavengeCacheFileLifeTime',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\ScavengeCacheFileLimit',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Signature',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\AlwaysDrainOnRedirect',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\AutoConfigCustomUA',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\AutoConfigURL',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\BadProxyExpiresTime',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\BypassHTTPNoCacheCheck',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\BypassSSLNoCacheCheck',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\CacheMode',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\CertCacheNoValidate',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\CertificateRevocation',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ClientAuthBuiltInUI',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ConnectRetries',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ConnectTimeOut',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\Connections\\DefaultConnectionSettings',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\Connections\\SavedLegacySettings',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DialupUseLanSettings',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DisableBasicOverClearChannel',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DisableCachingOfSSLPages',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DisableKeepAlive',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DisableNTLMPreAuth',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DisablePassport',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DisableReadRange',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DisableWorkerThreadHibernation',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DnsCacheEnabled',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DnsCacheEntries',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DnsCacheTimeout',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DontUseDNSLoadBalancing',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\EnableAutodial',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\EnableHttp1_1',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\EnableNegotiate',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\FromCacheTimeout',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\FtpDefaultExpiryTimeSecs',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\GlobalUserOffline',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\HeaderExclusionListForCache',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\HttpDefaultExpiryTimeSecs',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\IdnEnabled',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\KeepAliveTimeout',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\LeashLegacyCookies',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\MaxConnectionsPer1_0Server',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\MaxConnectionsPerProxy',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\MaxConnectionsPerServer',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\MaxHttpRedirects',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\MigrateProxy',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\MimeExclusionListForCache',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\NoCheckAutodialOverRide',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\NoNetAutodial',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\PerUserCookies',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ProxyEnable',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ProxyHttp1.1',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ProxyOverride',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ProxyServer',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ReceiveTimeOut',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ScavengeCacheLowerBound',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\SecureProtocols',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\SendExtraCRLF',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\SendTimeOut',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ServerInfoTimeout',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\SocketReceiveBufferLength',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\SocketSendBufferLength',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\SyncMode5',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\WarnAlwaysOnPost',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\WarnOnBadCertRecving',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\WarnOnHTTPSToHTTPRedirect',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\WarnOnPost',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\WarnOnPostRedirect',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\WarnOnZoneCrossing',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\WpadSearchAllDomains',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\Wpad\\WpadOverride',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\ScavengeCacheFileLimit',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DisplayScriptDownloadFailureUI',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\EnableAutoProxyResultCache',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\EnableHttp1_1',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\MBCSAPIforCrack',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\MBCSServername',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ProxyHttp1.1',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\SecureProtocols',
+                    None),
+                   ('HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\UTF8ServerNameRes',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\AutoProxyTypes\\Application/x-internet-signup\\Default',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\AutoProxyTypes\\Application/x-internet-signup\\DllFile',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\AutoProxyTypes\\Application/x-internet-signup\\FileExtensions',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\AutoProxyTypes\\Application/x-internet-signup\\Flags',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\AutoProxyTypes\\Application/x-ns-proxy-autoconfig\\Default',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\AutoProxyTypes\\Application/x-ns-proxy-autoconfig\\DllFile',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\AutoProxyTypes\\Application/x-ns-proxy-autoconfig\\FileExtensions',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\AutoProxyTypes\\Application/x-ns-proxy-autoconfig\\Flags',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{00BB2763-6A77-11D0-A535-00C04FD7D062}\\InProcServer32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{03C036F1-A186-11D0-824A-00AA005B4383}\\InProcServer32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{1B1CAD8C-2DAB-11D2-B604-00104B703EFD}\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{1B1CAD8C-2DAB-11D2-B604-00104B703EFD}\\InprocServer32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{1B1CAD8C-2DAB-11D2-B604-00104B703EFD}\\InprocServer32\\InprocServer32',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{1B1CAD8C-2DAB-11D2-B604-00104B703EFD}\\InprocServer32\\ThreadingModel',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{B196B286-BAB4-101A-B69C-00AA00341D07}\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{B196B286-BAB4-101A-B69C-00AA00341D07}\\InprocServer32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{B196B286-BAB4-101A-B69C-00AA00341D07}\\InprocServer32\\InprocServer32',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{B196B286-BAB4-101A-B69C-00AA00341D07}\\InprocServer32\\ThreadingModel',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{D68AF00A-29CB-43FA-8504-CE99A996D9EA}\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{D68AF00A-29CB-43FA-8504-CE99A996D9EA}\\InprocServer32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{D68AF00A-29CB-43FA-8504-CE99A996D9EA}\\InprocServer32\\InprocServer32',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID\\{D68AF00A-29CB-43FA-8504-CE99A996D9EA}\\InprocServer32\\ThreadingModel',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Interface\\{027947E1-D731-11CE-A357-000000000001}\\ProxyStubClsid32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Interface\\{1C1C45EE-4395-11D2-B60B-00104B703EFD}\\ProxyStubClsid32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Interface\\{26656EAA-54EB-4E6F-8F85-4F0EF901A406}\\ProxyStubClsid32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Interface\\{2A1C9EB2-DF62-4154-B800-63278FCB8037}\\ProxyStubClsid32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Interface\\{423EC01E-2E35-11D2-B604-00104B703EFD}\\ProxyStubClsid32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Interface\\{55272A00-42CB-11CE-8135-00AA004BB851}\\ProxyStubClsid32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Interface\\{8A40A45D-055C-4B62-ABD7-6D613E2CEAEC}\\ProxyStubClsid32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Interface\\{9556DC99-828C-11CF-A37E-00AA003240C7}\\ProxyStubClsid32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Interface\\{BCD1DE7E-2DB1-418B-B047-4A74E101F8C1}\\ProxyStubClsid32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Interface\\{D4781CD6-E5D3-44DF-AD94-930EFE48A887}\\ProxyStubClsid32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\0\\win32\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\FLAGS\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\TypeLib\\{A8A8FC8F-45DF-4720-B6D9-F8CE7E1483A2}\\1.0\\HELPDIR\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\http\\URL Protocol',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\http\\shell\\open\\command\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\CTF\\EnableAnchorContext',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\CTF\\TIP\\{0000897b-83df-4b96-be07-0fb58b01c4a4}\\LanguageProfile\\0x00000000\\{0001bea3-ed56-483d-a2e2-aeae25577436}\\Enable',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Internet '
+                    'Explorer\\MAIN\\FeatureControl\\FEATURE_DISABLE_UNICODE_HANDLE_CLOSING_CALLBACK\\*',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Internet '
+                    'Explorer\\MAIN\\FeatureControl\\FEATURE_DISABLE_UNICODE_HANDLE_CLOSING_CALLBACK\\RunDll32.exe',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Internet '
+                    'Explorer\\MAIN\\FeatureControl\\Feature_ClientAuthCertFilter',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\DisabledProcesses\\6E719D16',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\DisabledSessions\\GlobalSession',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\DisabledSessions\\MachineThrottling',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\EnableConsoleTracing',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\ConsoleTracingMask',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\EnableConsoleTracing',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\EnableFileTracing',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\FileDirectory',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\FileTracingMask',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASAPI32\\MaxFileSize',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASMANCS\\ConsoleTracingMask',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASMANCS\\EnableConsoleTracing',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASMANCS\\EnableFileTracing',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASMANCS\\FileDirectory',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASMANCS\\FileTracingMask',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Tracing\\RunDll32_RASMANCS\\MaxFileSize',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Arabic Transparent',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Arabic Transparent '
+                    'Bold',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Arabic Transparent '
+                    'Bold,0',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Arabic Transparent,0',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Arial Baltic,186',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Arial CE,238',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Arial CYR,204',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Arial Greek,161',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Arial TUR,162',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Courier New '
+                    'Baltic,186',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Courier New CE,238',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Courier New CYR,204',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Courier New '
+                    'Greek,161',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Courier New TUR,162',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\David Transparent',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\FangSong_GB2312',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Fixed Miriam '
+                    'Transparent',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Helv',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Helvetica',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\KaiTi_GB2312',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\MS Shell Dlg',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\MS Shell Dlg 2',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Miriam Transparent',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Rod Transparent',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Segoe UI',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Tahoma Armenian',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Times',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Times New Roman '
+                    'Baltic,186',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Times New Roman '
+                    'CE,238',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Times New Roman '
+                    'CYR,204',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Times New Roman '
+                    'Greek,161',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Times New Roman '
+                    'TUR,162',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\FontSubstitutes\\Tms Rmn',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\DataStore_V1.0\\DataFilePath',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\DataStore_V1.0\\Disable',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane1',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane10',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane11',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane12',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane13',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane14',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane15',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane16',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane2',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane3',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane4',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane5',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane6',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane7',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane8',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\LanguagePack\\SurrogateFallback\\Plane9',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\ProfileList\\ProgramData',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\ProfileList\\S-1-5-21-511821994-3584667840-1226877925-1001\\ProfileImagePath',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\RegisteredOrganization',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows '
+                    'NT\\CurrentVersion\\RegisteredOwner',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CommonFilesDir',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoComplete\\Always '
+                    'Use Tab',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoComplete\\AutoSuggest',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoComplete\\Client\\(Default)',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Content\\PerUserItem',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\Cookies\\PerUserItem',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\History\\PerUserItem',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\ScavengeCacheFileLimit',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\5.0\\Cache\\SessionStartTimeDefaultDeltaSecs',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\BypassHTTPNoCacheCheck',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\BypassSSLNoCacheCheck',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ConnectRetries',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ConnectTimeOut',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DialupUseLanSettings',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DisableBranchCache',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DisableWorkerThreadHibernation',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\DontUseDNSLoadBalancing',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\EnableHttpTrace',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\MaxConnectionsPer1_0Server',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\MaxConnectionsPerServer',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\NoCheckAutodialOverRide',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ProxyHttp1.1',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ReceiveTimeOut',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\SendTimeOut',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ShareCredsWithWinHttp',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\TcpAutotuning',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\TurnOffSPIAnimations',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ProgramFilesDir',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SideBySide\\PreferExternalManifest',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\Windows '
+                    'Error Reporting\\WMR\\Disable',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\EnableHttp1_1',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ProxyHttp1.1',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\ProxySettingsPerUser',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\SecureProtocols',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet '
+                    'Settings\\Security_HKLM_only',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\CMF\\Config\\SYSTEM',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Lsa\\AccessProviders\\MartaExtension',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Nls\\CustomLocale\\en',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Nls\\CustomLocale\\en-AU',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Nls\\CustomLocale\\en-US',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Nls\\ExtendedLocale\\en',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Nls\\ExtendedLocale\\en-AU',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Nls\\ExtendedLocale\\en-US',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Nls\\Language '
+                    'Groups\\1',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Nls\\Locale\\00000C09',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Nls\\Sorting\\Versions\\00060101.00060101',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\SecurityProviders\\SecurityProviders',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\services\\Tcpip\\Parameters\\Domain',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\services\\Tcpip\\Parameters\\Hostname',
+                    None),
+                   ('HKEY_LOCAL_MACHINE\\SYSTEM\\Setup\\SystemSetupInProgress',
+                    None)]}
