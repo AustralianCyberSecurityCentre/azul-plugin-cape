@@ -20,7 +20,7 @@ class CapeError(RuntimeError):
     cape_message: str = None  # Error message returned by cape
 
     def __init__(self, message=None, cape_message: str = None):
-        super().__init__(message)
+        super().__init__(message, cape_message)
         self.cape_message = cape_message
 
 
