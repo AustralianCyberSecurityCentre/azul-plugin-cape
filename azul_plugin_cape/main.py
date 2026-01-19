@@ -25,7 +25,7 @@ from PIL import Image
 
 from .cape import CapeError, CapeIO
 
-(ftInt, ftFloat, ftStr) = (FeatureType.Integer, FeatureType.Float, FeatureType.String)
+ftInt, ftFloat, ftStr = (FeatureType.Integer, FeatureType.Float, FeatureType.String)
 logger = logging.getLogger(__name__)
 
 
