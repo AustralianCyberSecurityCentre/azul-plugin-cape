@@ -32,7 +32,7 @@ def _check_error(resp: httpx.Response, context: str):
     except httpx.HTTPStatusError as e:
         raise httpx.HTTPStatusError(
             f"Failed to query cape during context {context} with error {e}", request=e.request, response=e.response
-        )
+        ) from e
 
     # Check for CAPE errors if the response is JSON
     if resp.headers["content-type"].startswith("application/json") and resp.json().get("error", False):
