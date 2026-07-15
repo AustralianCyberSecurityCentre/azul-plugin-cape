@@ -75,9 +75,8 @@ class AzulPluginCape(BinaryPlugin):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        cfg = cast(
-            CapeConfig, self.cfg
-        )  # ty does not understand add_settings(), this allows to not suppress unresolved-attribute line-by-line
+        # ty does not understand add_settings(), this allows to not suppress unresolved-attribute line-by-line
+        cfg = cast(CapeConfig, self.cfg)
 
         if not cfg.cape_server:
             raise RuntimeError("CAPE server URL must be set")

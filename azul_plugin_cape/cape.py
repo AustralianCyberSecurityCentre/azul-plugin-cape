@@ -59,9 +59,8 @@ class CapeIO:
     client: httpx.Client
 
     def __init__(self, cfg: settings.Settings | CapeConfig):
-        self.cfg = cast(
-            CapeConfig, cfg
-        )  # ty does not understand add_settings(), this allows to not suppress unresolved-attribute line-by-line
+        # ty does not understand add_settings(), this allows to not suppress unresolved-attribute line-by-line
+        self.cfg = cast(CapeConfig, cfg)
 
     def __enter__(self):
         """Open a connection to cape."""
