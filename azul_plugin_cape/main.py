@@ -7,7 +7,7 @@ import re
 import tempfile
 import traceback
 import zipfile
-from typing import Dict
+from typing import Dict, cast
 
 import httpx
 from azul_bedrock.models_network import FeatureType
@@ -23,7 +23,7 @@ from azul_runner import (
 )
 from PIL import Image
 
-from .cape import CapeError, CapeIO
+from .cape import CapeConfig, CapeError, CapeIO
 
 ftInt, ftFloat, ftStr = (FeatureType.Integer, FeatureType.Float, FeatureType.String)
 logger = logging.getLogger(__name__)
@@ -75,10 +75,14 @@ class AzulPluginCape(BinaryPlugin):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        if not self.cfg.cape_server:
+        cfg = cast(
+            CapeConfig, self.cfg
+        )  # ty does not understand add_settings(), this allows to not suppress unresolved-attribute line-by-line
+
+        if not cfg.cape_server:
             raise RuntimeError("CAPE server URL must be set")
-        if not httpx.URL(self.cfg.cape_server).is_absolute_url:
-            raise RuntimeError(f"Unable to use CAPE server with URL '{self.cfg.cape_server}'")
+        if not httpx.URL(cfg.cape_server).is_absolute_url:
+            raise RuntimeError(f"Unable to use CAPE server with URL '{cfg.cape_server}'")
 
         # Convert configs to integers if they aren't (config from env is always strings)
         for cfg_var in (
@@ -107,7 +111,7 @@ class AzulPluginCape(BinaryPlugin):
         """Main body of the plugin run, wrapped by a network exception handler in execute()."""
         is_contactable, httpx_status_error = cape_io.is_cape_contactable()
         if not is_contactable:
-            resp = httpx_status_error.response
+            resp = httpx_status_error.response  # ty: ignore error[unresolved-attribute] Can safely ignore, if is_contactable is false the status error is always valid
             return State(
                 State.Label.ERROR_NETWORK,
                 failure_name="Cape Uncontactable",
@@ -199,12 +203,12 @@ class AzulPluginCape(BinaryPlugin):
         # Fetch and add screenshots from the run
         if zip_bytes := cape_io.fetch_screenshots(cape_task):
             with tempfile.SpooledTemporaryFile(max_size=2**23) as temp_zip:
-                temp_zip.seekable = lambda: True  # Required because ZipFile checks this
+                temp_zip.seekable = lambda: True  # ty: ignore[invalid-assignment] Required because ZipFile checks this
                 # Write the content of the zip to the temp file, then free the byte string
                 temp_zip.write(zip_bytes)
                 del zip_bytes
                 # Sort the screenshots by name, since they're not ordered in the zip directory
-                screenshot: Dict[str, Image] = {}
+                screenshot: Dict[str, Image.Image] = {}
                 with zipfile.ZipFile(temp_zip) as zf:
                     for zip_entry in zf.infolist():
                         # Iterate each entry in the zip and add to our dict, indexed by sequence number (0000, 0001...)
