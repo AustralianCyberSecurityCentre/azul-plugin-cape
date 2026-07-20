@@ -3,7 +3,7 @@
 import datetime
 import logging
 import time
-from typing import Optional
+from typing import BinaryIO, Optional, Protocol, cast
 
 import httpx
 from azul_runner import Job, settings
@@ -17,11 +17,22 @@ class CapeError(RuntimeError):
     Optional second parameter `cape_message` records the message returned by cape.
     """
 
-    cape_message: str = None  # Error message returned by cape
+    cape_message: str | None = None  # Error message returned by cape
 
-    def __init__(self, message=None, cape_message: str = None):
+    def __init__(self, message=None, cape_message: str | None = None):
         super().__init__(message, cape_message)
         self.cape_message = cape_message
+
+
+class CapeConfig(Protocol):
+    """Typed view of the plugin config values used by CAPE integration."""
+
+    cape_server: str
+    cape_auth_token: str
+    api_retry_count: int
+    request_timeout: int
+    start_timeout: int
+    poll_interval: int
 
 
 def _check_error(resp: httpx.Response, context: str):
@@ -47,8 +58,9 @@ class CapeIO:
 
     client: httpx.Client
 
-    def __init__(self, cfg: settings.Settings):
-        self.cfg = cfg
+    def __init__(self, cfg: settings.Settings | CapeConfig):
+        # ty does not understand add_settings(), this allows to not suppress unresolved-attribute line-by-line
+        self.cfg = cast(CapeConfig, cfg)
 
     def __enter__(self):
         """Open a connection to cape."""
@@ -74,7 +86,7 @@ class CapeIO:
         """Close the connection to cape."""
         self.client.close()
 
-    def is_cape_contactable(self) -> tuple[bool, httpx.HTTPStatusError]:
+    def is_cape_contactable(self) -> tuple[bool, httpx.HTTPStatusError | str]:
         """Check if the cape VM is contactable and return error if it isn't."""
         response = self.client.get("/")
         try:
@@ -104,7 +116,8 @@ class CapeIO:
             # Need to submit job to CAPE
             filenames = [f.value for f in job.event.entity.features if f.name == "filename"]
             # CAPE accepts either (name, data-stream) or just bare data-stream in file submission
-            file_submission = (sorted(filenames)[0], job.get_data()) if filenames else job.get_data()
+            job_data: BinaryIO = cast(BinaryIO, job.get_data())  # cast is necessary for type checking
+            file_submission = (sorted(filenames)[0], job_data) if filenames else job_data
             response = self.client.post("/tasks/create/file/", files={"file": file_submission})
             # Optionally we can also pass `data={"machine": "vm-name"}` to request a specific guest
             _check_error(response, "submitting job")
