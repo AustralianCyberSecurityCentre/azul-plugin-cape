@@ -53,7 +53,7 @@ wheels = [
 
 [[package]]
 name = "azul-bedrock"
-version = "12.0.33"
+version = "12.0.41"
 source = { registry = "https://devpi.acsc.internal/azul/stable/" }
 dependencies = [
     { name = "babel" },
@@ -71,7 +71,7 @@ dependencies = [
     { name = "yara-x" },
 ]
 wheels = [
-    { url = "https://devpi.acsc.internal/azul/stable/+f/32d/56169516a5ccc/azul_bedrock-12.0.33-py3-none-any.whl", hash = "sha256:32d56169516a5cccb47949f6e01071fe3e5ea5c86b27ef1a1b356462bd877483" },
+    { url = "https://devpi.acsc.internal/azul/stable/+f/fe4/adf7443e6f4b4/azul_bedrock-12.0.41-py3-none-any.whl", hash = "sha256:fe4adf7443e6f4b4622211e4eb4a009c3a00029b406d53b034dbcd199d3f170e" },
 ]
 
 [package.optional-dependencies]
@@ -124,7 +124,7 @@ dev = [
 
 [[package]]
 name = "azul-runner"
-version = "12.0.38"
+version = "12.0.48"
 source = { registry = "https://devpi.acsc.internal/azul/stable/" }
 dependencies = [
     { name = "azul-bedrock" },
@@ -137,7 +137,7 @@ dependencies = [
     { name = "watchdog" },
 ]
 wheels = [
-    { url = "https://devpi.acsc.internal/azul/stable/+f/c10/74cda7abbe77e/azul_runner-12.0.38-py3-none-any.whl", hash = "sha256:c1074cda7abbe77e1841cb066ab1936de07a110d916636f69467b19f294ca095" },
+    { url = "https://devpi.acsc.internal/azul/stable/+f/41c/53a986f14559f/azul_runner-12.0.48-py3-none-any.whl", hash = "sha256:41c53a986f14559fc51e92166fdb367f6a51050f0684cb9474ff2114620cd52c" },
 ]
 
 [package.optional-dependencies]
