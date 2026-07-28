@@ -88,7 +88,7 @@ class CapeIO:
 
     def is_cape_contactable(self) -> tuple[bool, httpx.HTTPStatusError | str]:
         """Check if the cape VM is contactable and return error if it isn't."""
-        response = self.client.get("/")
+        response = self.client.get("/cuckoo/status/")
         try:
             response.raise_for_status()
         except httpx.HTTPStatusError as e:
