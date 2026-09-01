@@ -49,7 +49,7 @@ class AzulPluginCape(BinaryPlugin):
         # custom options
         start_timeout=(int, 10 * 60),  # Report error if CAPE doesn't start running the sample within this time
         cape_server=(str, ""),  # URL of the CAPE server, eg http://localhost:8000
-        cape_auth_token=(str, ""),  # Token for server auth, or empty for none
+        secret_cape_auth_token=(str, ""),  # Token for server auth, or empty for none
         poll_interval=(int, 15),  # Seconds to wait between polling of CAPE server for job status
         api_retry_count=(int, 3),  # How many times to retry API requests on timeout or temporary error
         concurrent_plugin_instances=10,  # Number of copies of the plugin to run simultaneously in the same container.
