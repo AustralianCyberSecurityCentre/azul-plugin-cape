@@ -64,8 +64,8 @@ class CapeIO:
 
     def __enter__(self):
         """Open a connection to cape."""
-        if self.cfg.cape_auth_token:
-            auth_header = {"Authorization": f"Token {self.cfg.cape_auth_token}"}
+        if self.cfg.secret_cape_auth_token:
+            auth_header = {"Authorization": f"Token {self.cfg.secret_cape_auth_token}"}
         else:
             auth_header = None
 
