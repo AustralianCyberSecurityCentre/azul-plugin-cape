@@ -28,7 +28,7 @@ class CapeConfig(Protocol):
     """Typed view of the plugin config values used by CAPE integration."""
 
     cape_server: str
-    cape_auth_token: str
+    secret_cape_auth_token: str
     api_retry_count: int
     request_timeout: int
     start_timeout: int
