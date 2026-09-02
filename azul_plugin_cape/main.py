@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 class AzulPluginCape(BinaryPlugin):
     """Submit binaries to CAPE dynamic analysis."""
 
-    VERSION = "2025.02.07"
+    VERSION = "2026.09.02"
     SETTINGS = add_settings(
         # Note: 'win32 exe' may include 64-bit exes
         filter_data_types={
@@ -130,7 +130,7 @@ class AzulPluginCape(BinaryPlugin):
             self.add_text(cape_report["debug"]["log"])
 
         # Add the full cape report (JSON) as a data stream for use by downstream plugins
-        self.add_data(DataLabel.CAPE_REPORT, data=json.dumps(cape_report).encode("utf-8"), tags={})
+        self.add_data(DataLabel.CAPE_REPORT, data=json.dumps(cape_report, indent=2).encode("utf-8"), tags={})
 
         # Record CAPE's "malscore"
         self.add_feature_values("cape_malscore", [cape_report["malscore"]])
@@ -147,20 +147,32 @@ class AzulPluginCape(BinaryPlugin):
 
         # Add features for the ATT&CK techniques returned in cape_report['ttps']
         # This is a subset of 'signatures', just the ones that have ATT&CK IDs
-        self.add_feature_values("attack", [FV(a["ttp"], label=a["signature"]) for a in cape_report["ttps"]])
+        attack_ids = []
+        # Each signature can have one or more TTPs
+        for ttps_agg in cape_report["ttps"]:
+            if "ttp" in ttps_agg:
+                # Older Cape versions
+                attack_ids.append(FV(ttps_agg["ttp"], label=ttps_agg["signature"]))
+            else:
+                for ttp in ttps_agg["ttps"]:
+                    attack_ids.append(FV(ttp, label=ttps_agg["signature"]))
+
+        self.add_feature_values("attack", attack_ids)
 
         # Record features for file and registry accesses
-        for feat_name, cape_name in [
-            ("file_read", "read_files"),
-            ("file_written", "write_files"),
-            ("file_deleted", "delete_files"),
-            ("registry_read", "read_keys"),
-            ("registry_key_set", "write_keys"),
-            ("registry_key_deleted", "delete_keys"),
-            ("command_executed", "executed_commands"),
-        ]:
-            if cape_report["behavior"]["summary"][cape_name]:
-                self.add_feature_values(feat_name, cape_report["behavior"]["summary"][cape_name])
+        # Cape doesn't include this field if it gets no hits
+        if "summary" in cape_report["behavior"]:
+            for feat_name, cape_name in [
+                ("file_read", "read_files"),
+                ("file_written", "write_files"),
+                ("file_deleted", "delete_files"),
+                ("registry_read", "read_keys"),
+                ("registry_key_set", "write_keys"),
+                ("registry_key_deleted", "delete_keys"),
+                ("command_executed", "executed_commands"),
+            ]:
+                if cape_report["behavior"]["summary"][cape_name]:
+                    self.add_feature_values(feat_name, cape_report["behavior"]["summary"][cape_name])
 
         # Network features
         if "domains" in cape_report["network"]:
@@ -193,11 +205,16 @@ class AzulPluginCape(BinaryPlugin):
                 # Build a dict of {ip: set('tcp:<port>', 'tcp:<port>', 'udp:<port>', ...)}
                 contacted_ips.setdefault(conn["dst"], set()).add(f"{ctype}:{conn['dport']}")
 
-        self.add_feature_values(
-            "contacted_host", [FV(ip, label="".join(sorted(ports))) for ip, ports in contacted_ips.items()]
-        )
-        self.add_feature_values("ip_address", sorted(contacted_ips.keys()))
-        self.add_feature_values("contacted_port", contacted_ports)
+        contacted_hosts_fvs = [FV(ip, label="".join(sorted(ports))) for ip, ports in contacted_ips.items()]
+        if len(contacted_hosts_fvs) > 0:
+            self.add_feature_values("contacted_host", contacted_hosts_fvs)
+
+        ip_address_fvs = list(sorted(contacted_ips.keys()))
+        if len(ip_address_fvs) > 0:
+            self.add_feature_values("ip_address", ip_address_fvs)
+
+        if len(contacted_ports) > 0:
+            self.add_feature_values("contacted_port", contacted_ports)
 
         # Fetch and add screenshots from the run
         if zip_bytes := cape_io.fetch_screenshots(cape_task):
