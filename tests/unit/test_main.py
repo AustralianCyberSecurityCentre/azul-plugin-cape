@@ -40,7 +40,7 @@ dummy_report = {
     "behavior": {},
     "network": {},
 }
-dummy_report_stream = json.dumps(dummy_report).encode("utf8")
+dummy_report_stream = json.dumps(dummy_report, indent=2).encode("utf8")
 dummy_report_hash = hashlib.sha256(dummy_report_stream).hexdigest()
 
 
@@ -328,7 +328,7 @@ class TestExecute(test_template.TestPlugin):
         # Expected output
         log_result = b"Dummy run log"
         log_hash = hashlib.sha256(log_result).hexdigest()
-        rept_stream = json.dumps(cape_report).encode("utf8")
+        rept_stream = json.dumps(cape_report, indent=2).encode("utf8")
         rept_hash = hashlib.sha256(rept_stream).hexdigest()
 
         result = self.do_execution(
@@ -424,7 +424,7 @@ class TestExecute(test_template.TestPlugin):
         # Check the returned log stream matches
         log_result = cape_report["debug"]["log"].encode("utf8")
         log_hash = hashlib.sha256(log_result).hexdigest()
-        rept_stream = json.dumps(cape_report).encode("utf8")
+        rept_stream = json.dumps(cape_report, indent=2).encode("utf8")
         rept_hash = hashlib.sha256(rept_stream).hexdigest()
 
         result = self.do_execution(

@@ -205,11 +205,16 @@ class AzulPluginCape(BinaryPlugin):
                 # Build a dict of {ip: set('tcp:<port>', 'tcp:<port>', 'udp:<port>', ...)}
                 contacted_ips.setdefault(conn["dst"], set()).add(f"{ctype}:{conn['dport']}")
 
-        self.add_feature_values(
-            "contacted_host", [FV(ip, label="".join(sorted(ports))) for ip, ports in contacted_ips.items()]
-        )
-        self.add_feature_values("ip_address", sorted(contacted_ips.keys()))
-        self.add_feature_values("contacted_port", contacted_ports)
+        contacted_hosts_fvs = [FV(ip, label="".join(sorted(ports))) for ip, ports in contacted_ips.items()]
+        if len(contacted_hosts_fvs) > 0:
+            self.add_feature_values("contacted_host", contacted_hosts_fvs)
+
+        ip_address_fvs = list(sorted(contacted_ips.keys()))
+        if len(ip_address_fvs) > 0:
+            self.add_feature_values("ip_address", ip_address_fvs)
+
+        if len(contacted_ports) > 0:
+            self.add_feature_values("contacted_port", contacted_ports)
 
         # Fetch and add screenshots from the run
         if zip_bytes := cape_io.fetch_screenshots(cape_task):
