@@ -147,20 +147,32 @@ class AzulPluginCape(BinaryPlugin):
 
         # Add features for the ATT&CK techniques returned in cape_report['ttps']
         # This is a subset of 'signatures', just the ones that have ATT&CK IDs
-        self.add_feature_values("attack", [FV(a["ttp"], label=a["signature"]) for a in cape_report["ttps"]])
+        attack_ids = []
+        # Each signature can have one or more TTPs
+        for ttps_agg in cape_report["ttps"]:
+            if "ttp" in ttps_agg:
+                # Older Cape versions
+                attack_ids.append(FV(ttps_agg["ttp"], label=ttps_agg["signature"]))
+            else:
+                for ttp in ttps_agg["ttps"]:
+                    attack_ids.append(FV(ttp, label=ttps_agg["signature"]))
+
+        self.add_feature_values("attack", attack_ids)
 
         # Record features for file and registry accesses
-        for feat_name, cape_name in [
-            ("file_read", "read_files"),
-            ("file_written", "write_files"),
-            ("file_deleted", "delete_files"),
-            ("registry_read", "read_keys"),
-            ("registry_key_set", "write_keys"),
-            ("registry_key_deleted", "delete_keys"),
-            ("command_executed", "executed_commands"),
-        ]:
-            if cape_report["behavior"]["summary"][cape_name]:
-                self.add_feature_values(feat_name, cape_report["behavior"]["summary"][cape_name])
+        # Cape doesn't include this field if it gets no hits
+        if "summary" in cape_report["behavior"]:
+            for feat_name, cape_name in [
+                ("file_read", "read_files"),
+                ("file_written", "write_files"),
+                ("file_deleted", "delete_files"),
+                ("registry_read", "read_keys"),
+                ("registry_key_set", "write_keys"),
+                ("registry_key_deleted", "delete_keys"),
+                ("command_executed", "executed_commands"),
+            ]:
+                if cape_report["behavior"]["summary"][cape_name]:
+                    self.add_feature_values(feat_name, cape_report["behavior"]["summary"][cape_name])
 
         # Network features
         if "domains" in cape_report["network"]:
