@@ -130,7 +130,7 @@ class AzulPluginCape(BinaryPlugin):
             self.add_text(cape_report["debug"]["log"])
 
         # Add the full cape report (JSON) as a data stream for use by downstream plugins
-        self.add_data(DataLabel.CAPE_REPORT, data=json.dumps(cape_report).encode("utf-8"), tags={})
+        self.add_data(DataLabel.CAPE_REPORT, data=json.dumps(cape_report, indent=2).encode("utf-8"), tags={})
 
         # Record CAPE's "malscore"
         self.add_feature_values("cape_malscore", [cape_report["malscore"]])
