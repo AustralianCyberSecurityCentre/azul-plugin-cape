@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 class AzulPluginCape(BinaryPlugin):
     """Submit binaries to CAPE dynamic analysis."""
 
-    VERSION = "2025.02.07"
+    VERSION = "2026.09.02"
     SETTINGS = add_settings(
         # Note: 'win32 exe' may include 64-bit exes
         filter_data_types={
