@@ -37,20 +37,10 @@ dummy_report = {
     "malscore": 0.0,
     "signatures": [],
     "ttps": [],
-    "behavior": {
-        "summary": {
-            "read_files": [],
-            "write_files": [],
-            "delete_files": [],
-            "read_keys": [],
-            "write_keys": [],
-            "delete_keys": [],
-            "executed_commands": [],
-        },
-    },
+    "behavior": {},
     "network": {},
 }
-dummy_report_stream = json.dumps(dummy_report).encode("utf8")
+dummy_report_stream = json.dumps(dummy_report, indent=2).encode("utf8")
 dummy_report_hash = hashlib.sha256(dummy_report_stream).hexdigest()
 
 
@@ -289,11 +279,22 @@ class TestExecute(test_template.TestPlugin):
                     "confidence": 20,
                     "description": "Collects information about installed applications",
                 },
+                {
+                    "name": "pe_compile_timestomping",
+                    "description": "Binary compilation timestomping detected",
+                    "categories": ["generic"],
+                    "severity": 3,
+                    "weight": 1,
+                    "confidence": 100,
+                    "references": [],
+                    "data": [{"anomaly": "Compilation timestamp is in the future"}],
+                    "new_data": [],
+                    "alert": False,
+                    "families": [],
+                },
             ],
             "ttps": [
-                {"ttp": "T1012", "signature": "recon_programs"},
-                {"ttp": "T1082", "signature": "recon_programs"},
-                {"ttp": "T1518", "signature": "recon_programs"},
+                {"ttps": ["T1012", "T1082", "T1518"], "signature": "recon_programs"},
             ],
             "behavior": {
                 "summary": {
@@ -307,12 +308,19 @@ class TestExecute(test_template.TestPlugin):
                 }
             },
             "network": {
-                # Key/values not used by plugin left out of some of the below lists
-                "domains": [{"domain": "google.com", "ip": "1.2.3.4"}],
-                "http": [{"count": 1, "uri": "http://google.com/", "user-agent": "TestingUA", "method": "GET"}],
-                "dns": [{"request": "google.com", "answers": [{"type": "A", "data": "1.2.3.4"}]}],
-                "udp": [{"dst": "8.8.8.8", "dport": 53}, {"dst": "1.2.3.4", "dport": 53}],
-                "tcp": [{"dst": "1.2.3.4", "dport": 80}, {"dst": "5.6.7.8", "dport": 9876}],
+                # "pcap_sha256": "..."
+                "hosts": [],
+                "domains": [{"domain": "test.home.arpa", "ip": ""}],
+                "tcp": [],
+                "udp": [
+                    {"src": "10.0.0.2", "sport": 31872, "dst": "10.0.0.1", "dport": 53, "offset": 24, "time": 0.0}
+                ],
+                "icmp": [],
+                "http": [],
+                "dns": [{"request": "test.home.arpa", "type": "A", "answers": [], "first_seen": 1234567890}],
+                "smtp": [],
+                "irc": [],
+                "dead_hosts": [],
             },
         }
         hook_http(self.mp, overrides={"/tasks/get/report/": cape_report})
@@ -320,7 +328,7 @@ class TestExecute(test_template.TestPlugin):
         # Expected output
         log_result = b"Dummy run log"
         log_hash = hashlib.sha256(log_result).hexdigest()
-        rept_stream = json.dumps(cape_report).encode("utf8")
+        rept_stream = json.dumps(cape_report, indent=2).encode("utf8")
         rept_hash = hashlib.sha256(rept_stream).hexdigest()
 
         result = self.do_execution(
@@ -362,6 +370,10 @@ class TestExecute(test_template.TestPlugin):
                                     "recon_programs",
                                     label="Collects information about installed applications (Severity: 3 Confidence: 20)",
                                 ),
+                                FV(
+                                    "pe_compile_timestomping",
+                                    label="Binary compilation timestomping detected (Severity: 3 Confidence: 100)",
+                                ),
                             ],
                             "cape_malscore": [FV(1.3)],
                             "command_executed": [FV("c:\\temp\\runme.exe")],
@@ -374,11 +386,10 @@ class TestExecute(test_template.TestPlugin):
                             "registry_read": [FV("REG_READ_1"), FV("REG_READ_2")],
                             # Expect 'write_keys' to be missing
                             "registry_key_deleted": [FV("REG_DELETED")],
-                            "domain": [FV("google.com", label="DNS lookup")],
-                            "contacted_url": [FV("http://google.com/", label="GET, count=1, user-agent=TestingUA")],
-                            "ip_address": [FV("5.6.7.8"), FV("8.8.8.8")],
-                            "contacted_host": [FV("5.6.7.8", label="tcp:9876"), FV("8.8.8.8", label="udp:53")],
-                            "contacted_port": [FV(53, label="udp"), FV(80, label="tcp"), FV(9876, label="tcp")],
+                            "domain": [FV("test.home.arpa", label="DNS lookup")],
+                            "ip_address": [FV("10.0.0.1")],
+                            "contacted_host": [FV("10.0.0.1", label="udp:53")],
+                            "contacted_port": [FV(53, label="udp")],
                         },
                         info={
                             "CAPE_machine": "TestCapeGuest",
@@ -413,7 +424,7 @@ class TestExecute(test_template.TestPlugin):
         # Check the returned log stream matches
         log_result = cape_report["debug"]["log"].encode("utf8")
         log_hash = hashlib.sha256(log_result).hexdigest()
-        rept_stream = json.dumps(cape_report).encode("utf8")
+        rept_stream = json.dumps(cape_report, indent=2).encode("utf8")
         rept_hash = hashlib.sha256(rept_stream).hexdigest()
 
         result = self.do_execution(
