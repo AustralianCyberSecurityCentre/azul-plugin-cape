@@ -61,7 +61,7 @@ class AzulPluginCape(BinaryPlugin):
         Feature("command_executed", desc="Command line executed by process during analysis", type=ftStr),
         Feature("contacted_host", desc="Network endpoint seen communicating to", type=ftStr),
         Feature("contacted_port", desc="Destination port and protocol seen communicating on", type=ftInt),
-        Feature("contacted_url", desc="Network URL the sample was observed communicating with", type=ftStr),
+        Feature("contacted_url", desc="Network URL the sample was observed communicating with", type=FeatureType.Uri),
         Feature("domain", desc="Domain name observed or extracted from the sample", type=ftStr),
         Feature("file_read", desc="Filepath read by process during dynamic analysis", type=ftStr),
         Feature("file_written", desc="Filepath written by process during dynamic analysis", type=ftStr),
