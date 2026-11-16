@@ -219,7 +219,7 @@ class AzulPluginCape(BinaryPlugin):
         # Fetch and add screenshots from the run
         if zip_bytes := cape_io.fetch_screenshots(cape_task):
             with tempfile.SpooledTemporaryFile(max_size=2**23) as temp_zip:
-                temp_zip.seekable = lambda: True  # ty: ignore[invalid-assignment] Required because ZipFile checks this
+                temp_zip.seekable = lambda: True
                 # Write the content of the zip to the temp file, then free the byte string
                 temp_zip.write(zip_bytes)
                 del zip_bytes
