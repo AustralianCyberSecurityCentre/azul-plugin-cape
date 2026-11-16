@@ -108,9 +108,9 @@ class AzulPluginCape(BinaryPlugin):
 
     def execute_body(self, job: Job, cape_io: CapeIO):
         """Main body of the plugin run, wrapped by a network exception handler in execute()."""
-        is_contactable, httpx_status_error = cape_io.is_cape_contactable()
-        if not is_contactable:
-            resp = httpx_status_error.response  # ty: ignore error[unresolved-attribute] Can safely ignore, if is_contactable is false the status error is always valid
+        result = cape_io.is_cape_contactable()
+        if result[0] is False:
+            resp = result[1].response
             return State(
                 State.Label.ERROR_NETWORK,
                 failure_name="Cape Uncontactable",
@@ -219,7 +219,7 @@ class AzulPluginCape(BinaryPlugin):
         # Fetch and add screenshots from the run
         if zip_bytes := cape_io.fetch_screenshots(cape_task):
             with tempfile.SpooledTemporaryFile(max_size=2**23) as temp_zip:
-                temp_zip.seekable = lambda: True  # ty: ignore[invalid-assignment] Required because ZipFile checks this
+                temp_zip.seekable = lambda: True
                 # Write the content of the zip to the temp file, then free the byte string
                 temp_zip.write(zip_bytes)
                 del zip_bytes
