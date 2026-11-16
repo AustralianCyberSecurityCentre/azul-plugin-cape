@@ -3,7 +3,7 @@
 import datetime
 import logging
 import time
-from typing import BinaryIO, Optional, Protocol, cast
+from typing import BinaryIO, Literal, Optional, Protocol, cast
 
 import httpx
 from azul_runner import Job, settings
@@ -86,14 +86,14 @@ class CapeIO:
         """Close the connection to cape."""
         self.client.close()
 
-    def is_cape_contactable(self) -> tuple[bool, httpx.HTTPStatusError | str]:
+    def is_cape_contactable(self) -> tuple[Literal[True], None] | tuple[Literal[False], httpx.HTTPStatusError]:
         """Check if the cape VM is contactable and return error if it isn't."""
         response = self.client.get("/cuckoo/status/")
         try:
             response.raise_for_status()
         except httpx.HTTPStatusError as e:
             return False, e
-        return True, ""
+        return True, None
 
     def find_or_submit(self, job: Job) -> int:
         """Checks for an existing job for this file in CAPE, and submits the file if not present.
